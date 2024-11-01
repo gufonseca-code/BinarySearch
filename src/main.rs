@@ -1,4 +1,4 @@
-fn binary_search(array: &[i32], low: i32, high: i32, x: i32, mut cc: u32) -> String {
+fn binary_search(array: &[i8], low: i32, high: i32, x: i8, mut cc: u32) -> String {
    
     if high >= low {
         
@@ -13,7 +13,7 @@ fn binary_search(array: &[i32], low: i32, high: i32, x: i32, mut cc: u32) -> Str
         }
         
         cc += 1;
-        return binary_search(array, low, mid + 1, x, cc)
+        return binary_search(array, mid + 1, high, x, cc)
         
     }
 
@@ -21,8 +21,8 @@ fn binary_search(array: &[i32], low: i32, high: i32, x: i32, mut cc: u32) -> Str
 }
 
 fn main() {
-    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    static QUERY: i32 = 0;
+    static ARRAY: [i8; 1000000] = [1; 1000000];
+    static QUERY: i8 = 0;
     let cc: u32 = 0;
-    println!("{}", binary_search(&array, 0, array.len() as i32 - 1, QUERY, cc));
+    println!("{}", binary_search(&ARRAY, 0, ARRAY.len() as i32 - 1, QUERY, cc));
 }
